@@ -1,3 +1,43 @@
-.menuItem {
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@500;900&display=swap');
+
+.menuitem {
  color: red   
 }
+
+.twentyfourItem{
+    font-family: 'Noto Sans', sans-serif;
+    color: blue;
+    padding: 1rem;
+    font-size: 15rem;
+	-webkit-text-stroke: 5px #AF5063;
+	-webkit-text-fill-color: white;
+    font-weight: 900;
+    animation: pulsate 0.11s ease-in-out infinite alternate;    
+}
+
+@keyframes pulsate {
+    100% {
+      /* Larger blur radius */
+      text-shadow:
+        0 0 4px #AF5063,
+        0 0 11px #AF5063,
+        0 0 19px #AF5063,
+        0 0 40px #AF5063,
+        0 0 80px #AF5063,
+        0 0 90px #AF5063,
+        0 0 100px #AF5063,
+        0 0 150px #AF5063;
+    }
+   0% {
+      /* A slightly smaller blur radius */
+      text-shadow:
+        0 0 4px #AF5063,
+        0 0 10px #AF5063,
+        0 0 18px #AF5063,
+        0 0 38px #AF5063,
+        0 0 73px #AF5063,
+        0 0 80px #AF5063,
+        0 0 94px #AF5063,
+        0 0 140px #AF5063;
+    }
+  }
