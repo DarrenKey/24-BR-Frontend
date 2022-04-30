@@ -12,32 +12,121 @@
 	-webkit-text-stroke: 5px #AF5063;
 	-webkit-text-fill-color: white;
     font-weight: 900;
-    animation: pulsate 0.11s ease-in-out infinite alternate;    
+    animation: pulsate_24 0.11s ease-in-out infinite alternate;    
 }
 
-@keyframes pulsate {
+.br{
+    text-align: center;
+    border: 0.4rem black solid;
+    border-radius: 1rem;
+    width: fit-content;
+    padding: 1rem;
+    margin: 5rem;
+    /* box-shadow: 0 0 1rem white;
+    box-shadow: inset 0 0 1rem white; */
+    animation: pulsate_br_box 0.11s ease-in-out infinite alternate;    
+
+    /* -webkit-appearance: none; */
+}
+
+.b, .r{
+    margin: 0;
+    /* margin-bottom: -5rem; */
+    padding: 0;
+    font-size: 10rem;
+    text-align: center;
+    width: fit-content;
+    animation: pulsate_br 0.11s ease-in-out infinite alternate;    
+
+}
+
+.battleroyale{
+    color: white;
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: 900;
+
+}
+
+.attleoyale{
+    font-size: 8rem;
+
+}
+.attle,.oyale{
+
+}
+
+@keyframes pulsate_24{
     100% {
       /* Larger blur radius */
       text-shadow:
-        0 0 4px #AF5063,
-        0 0 11px #AF5063,
-        0 0 19px #AF5063,
-        0 0 40px #AF5063,
-        0 0 80px #AF5063,
-        0 0 90px #AF5063,
-        0 0 100px #AF5063,
-        0 0 150px #AF5063;
+        0 0 1rem #AF5063,
+        0 0 1.2rem #AF5063,
+        0 0 1.6rem #AF5063,
+        0 0 2.0rem #AF5063,
+        0 0 2.4rem #AF5063,
+        0 0 2.7rem #AF5063,
+        0 0 3.2rem #AF5063,
+        0 0 3.5rem #AF5063;
     }
    0% {
       /* A slightly smaller blur radius */
       text-shadow:
-        0 0 4px #AF5063,
-        0 0 10px #AF5063,
-        0 0 18px #AF5063,
-        0 0 38px #AF5063,
-        0 0 73px #AF5063,
-        0 0 80px #AF5063,
-        0 0 94px #AF5063,
-        0 0 140px #AF5063;
+      0 0 0.8rem #AF5063,
+      0 0 1.0rem #AF5063,
+      0 0 1.4rem #AF5063,
+      0 0 1.8rem #AF5063,
+      0 0 2.2rem #AF5063,
+      0 0 2.6rem #AF5063,
+      0 0 3.0rem #AF5063,
+      0 0 3.4rem #AF5063;
+    }
+  }
+
+  @keyframes pulsate_br{
+      100% {
+        /* Larger blur radius */
+        text-shadow:
+          0 0 0.2rem #fff,
+          0 0 0.5rem #fff,
+          0 0 0.6rem #fff,
+          0 0 0.8rem #fff;
+      }
+     0% {
+        /* A slightly smaller blur radius */
+        text-shadow:
+        0 0 0.2rem #fff,
+        0 0 0.45rem #fff,
+        0 0 0.55rem #fff,
+        0 0 0.7rem #fff;
+      }
+    }
+
+
+  @keyframes pulsate_br_box{
+    100% {
+      /* Larger blur radius */
+      box-shadow:
+      0 0 0.2rem #fff,
+      0 0 0.4rem #fff,
+      0 0 0.8rem #fff,
+      0 0 1.0rem #fff,
+
+      inset 0 0 0.2rem #fff,
+      inset 0 0 0.4rem #fff,
+      inset 0 0 0.8rem #fff,
+      inset 0 0 1.0rem #fff;
+    }
+   0% {
+      /* A slightly smaller blur radius */
+      box-shadow:
+      0 0 0.1rem #fff,
+      0 0 0.3rem #fff,
+      0 0 0.7rem #fff,
+      0 0 0.9rem #fff,
+
+      inset 0 0 0.1rem #fff,
+      inset 0 0 0.3rem #fff,
+      inset 0 0 0.7rem #fff,
+      inset 0 0 0.9rem #fff;
     }
   }

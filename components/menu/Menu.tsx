@@ -6,15 +6,14 @@ const MenuItmes = ["Login", "Play", "Options", "Stats"]
 //   readonly upgrade: Upgrade
 //   readonly brbs: number
 //   readonly setBRBs : Dispatch<SetStateAction<number>>
-//   readonly upgradeCounts : Map<Upgrade, number>
+//   readonly upg   radeCounts : Map<Upgrade, number>
 //   readonly setUpgradeCounts : Dispatch<SetStateAction<Map<Upgrade, number>>>
 // }
 
 const Menu = () => {
   return (
     <div>
-        { MenuItmes.map(ele => <ul className={styles.menuItem} key={ele}>{ele}</ul>)
-        }
+        { MenuItmes.map(ele => <ul className={styles.menuItem} key={ele}>{ele}</ul>) }
     </div>
   )
 }
