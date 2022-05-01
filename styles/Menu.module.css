@@ -15,118 +15,171 @@
     animation: pulsate_24 0.11s ease-in-out infinite alternate;    
 }
 
-.br{
-    text-align: center;
-    border: 0.4rem black solid;
-    border-radius: 1rem;
-    width: fit-content;
-    padding: 1rem;
-    margin: 5rem;
-    /* box-shadow: 0 0 1rem white;
-    box-shadow: inset 0 0 1rem white; */
-    animation: pulsate_br_box 0.11s ease-in-out infinite alternate;    
-
-    /* -webkit-appearance: none; */
-}
-
 .b, .r{
-    margin: 0;
-    /* margin-bottom: -5rem; */
-    padding: 0;
+    padding: 1rem;
     font-size: 10rem;
     text-align: center;
     width: fit-content;
     animation: pulsate_br 0.11s ease-in-out infinite alternate;    
+}
+.b{
+    grid-column: 1;
+    grid-row: 1;
 
+    /* border-top: #AF5063 1rem solid;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem; */
 }
 
+.r{
+    grid-column: 1;
+    grid-row: 2 / 3;
+
+    /* border-bottom: #AF5063 1rem solid;
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem; */
+}
+.attle{
+    grid-column: 2;
+    grid-row: 1;
+}
+.oyale{
+    grid-column: 2;
+    grid-row: 2/3;
+}
 .battleroyale{
+    display: grid;
     color: white;
     font-family: 'Noto Sans', sans-serif;
     font-weight: 900;
+    grid-template-columns: min-content 1fr;
+    grid-template-rows: min-content min-content;
+    /* border: #AF5063 1rem solid; */
+    align-items: center;
+    justify-items: start;
+
+
+    margin: 1rem
+
 
 }
 
-.attleoyale{
-    font-size: 8rem;
-
-}
 .attle,.oyale{
+    font-size: 8rem;
+    animation: pulsate_attleoyale 0.11s ease-in-out infinite alternate;   
+    font-weight: 400;
 
+}
+
+.brbox{
+    grid-row: 1/3;
+    grid-column: 1;
+
+    border: black 0.5rem solid;
+    border-radius: 1rem;
+    
+    display: grid;
+    
+    grid-template-columns: min-content;
+    grid-template-rows: 1fr 1fr;
+    
+    animation: pulsate_br_box 0.11s ease-in-out infinite alternate;   
+
+    margin-right: 1rem;
 }
 
 @keyframes pulsate_24{
+  100% {
+    /* Larger blur radius */
+    text-shadow:
+      0 0 1rem #AF5063,
+      0 0 1.2rem #AF5063,
+      0 0 1.6rem #AF5063,
+      0 0 2.0rem #AF5063,
+      0 0 2.4rem #AF5063,
+      0 0 2.7rem #AF5063,
+      0 0 3.2rem #AF5063,
+      0 0 3.5rem #AF5063;
+  }
+  0% {
+    /* A slightly smaller blur radius */
+    text-shadow:
+    0 0 0.8rem #AF5063,
+    0 0 1.0rem #AF5063,
+    0 0 1.4rem #AF5063,
+    0 0 1.8rem #AF5063,
+    0 0 2.2rem #AF5063,
+    0 0 2.6rem #AF5063,
+    0 0 3.0rem #AF5063,
+    0 0 3.4rem #AF5063;
+  }
+}
+
+@keyframes pulsate_br{
     100% {
       /* Larger blur radius */
       text-shadow:
-        0 0 1rem #AF5063,
-        0 0 1.2rem #AF5063,
-        0 0 1.6rem #AF5063,
-        0 0 2.0rem #AF5063,
-        0 0 2.4rem #AF5063,
-        0 0 2.7rem #AF5063,
-        0 0 3.2rem #AF5063,
-        0 0 3.5rem #AF5063;
-    }
-   0% {
-      /* A slightly smaller blur radius */
-      text-shadow:
-      0 0 0.8rem #AF5063,
-      0 0 1.0rem #AF5063,
-      0 0 1.4rem #AF5063,
-      0 0 1.8rem #AF5063,
-      0 0 2.2rem #AF5063,
-      0 0 2.6rem #AF5063,
-      0 0 3.0rem #AF5063,
-      0 0 3.4rem #AF5063;
-    }
-  }
-
-  @keyframes pulsate_br{
-      100% {
-        /* Larger blur radius */
-        text-shadow:
-          0 0 0.2rem #fff,
-          0 0 0.5rem #fff,
-          0 0 0.6rem #fff,
-          0 0 0.8rem #fff;
-      }
-     0% {
-        /* A slightly smaller blur radius */
-        text-shadow:
         0 0 0.2rem #fff,
-        0 0 0.45rem #fff,
-        0 0 0.55rem #fff,
-        0 0 0.7rem #fff;
-      }
+        0 0 0.5rem #fff,
+        0 0 0.6rem #fff,
+        0 0 0.8rem #fff;
     }
-
-
-  @keyframes pulsate_br_box{
-    100% {
-      /* Larger blur radius */
-      box-shadow:
-      0 0 0.2rem #fff,
-      0 0 0.4rem #fff,
-      0 0 0.8rem #fff,
-      0 0 1.0rem #fff,
-
-      inset 0 0 0.2rem #fff,
-      inset 0 0 0.4rem #fff,
-      inset 0 0 0.8rem #fff,
-      inset 0 0 1.0rem #fff;
-    }
-   0% {
+    0% {
       /* A slightly smaller blur radius */
-      box-shadow:
-      0 0 0.1rem #fff,
-      0 0 0.3rem #fff,
-      0 0 0.7rem #fff,
-      0 0 0.9rem #fff,
-
-      inset 0 0 0.1rem #fff,
-      inset 0 0 0.3rem #fff,
-      inset 0 0 0.7rem #fff,
-      inset 0 0 0.9rem #fff;
+      text-shadow:
+      0 0 0.2rem #fff,
+      0 0 0.45rem #fff,
+      0 0 0.55rem #fff,
+      0 0 0.7rem #fff;
     }
   }
+
+
+@keyframes pulsate_attleoyale{
+  100% {
+    /* Larger blur radius */
+    text-shadow:
+      0 0 0.1rem #fff,
+      0 0 0.25rem #fff,
+      0 0 0.35rem #fff,
+      0 0 0.5rem #fff;
+  }
+  0% {
+    /* A slightly smaller blur radius */
+    text-shadow:
+    0 0 0.05rem #fff,
+    0 0 0.2rem #fff,
+    0 0 0.3rem #fff,
+    0 0 0.45rem #fff;
+  }
+}
+
+
+@keyframes pulsate_br_box{
+  100% {
+    /* Larger blur radius */
+    box-shadow:
+    0 0 0.2rem #fff,
+    0 0 0.4rem #fff,
+    0 0 0.8rem #fff,
+    0 0 1.0rem #fff,
+
+    inset 0 0 0.2rem #fff,
+    inset 0 0 0.4rem #fff,
+    inset 0 0 0.8rem #fff,
+    inset 0 0 1.0rem #fff;
+  }
+  0% {
+    /* A slightly smaller blur radius */
+    box-shadow:
+    0 0 0.1rem #fff,
+    0 0 0.3rem #fff,
+    0 0 0.7rem #fff,
+    0 0 0.9rem #fff,
+
+    inset 0 0 0.1rem #fff,
+    inset 0 0 0.3rem #fff,
+    inset 0 0 0.7rem #fff,
+    inset 0 0 0.9rem #fff;
+  }
+}

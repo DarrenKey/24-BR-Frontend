@@ -12,14 +12,12 @@ import styles from "../../styles/Menu.module.css"
 const BattleRoyale = () => {
   return (
     <div className={styles.battleroyale}>
-        <div className={styles.br}>
+        <div className = {styles.brbox}>
             <div className = {styles.b}>B</div>
-            <div className = {styles.r}>R</div>
-        </div>
-        <div className = {styles.attleoyale}>
+            <div className = {styles.r}>R</div></div>
             <div className = {styles.attle}>attle</div>
             <div className = {styles.oyale}>oyale</div>
-        </div>
+
     </div>
   )
 }
