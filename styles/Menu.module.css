@@ -1,7 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@500;900&display=swap');
 
+.wholemenu{
+  border: white 0.5rem solid;
+  border-radius: 1rem;
+  width: fit-content;
+  text-align: center;
+  padding: 0rem 1rem 0rem 1rem;
+}
+
 .menuitem {
- color: red   
+  
+  color: white;
+  font-family: 'Noto Sans', sans-serif;
+  font-weight: 400;
+  font-size: 3rem;
+  text-align: center;
+  padding: 0;
 }
 
 .twentyfourItem{
@@ -17,7 +31,7 @@
 
 .b, .r{
     padding: 1rem;
-    font-size: 10rem;
+    font-size: 6rem;
     text-align: center;
     width: fit-content;
     animation: pulsate_br 0.11s ease-in-out infinite alternate;    
@@ -65,7 +79,7 @@
 }
 
 .attle,.oyale{
-    font-size: 8rem;
+    font-size: 5rem;
     animation: pulsate_attleoyale 0.11s ease-in-out infinite alternate;   
     font-weight: 400;
 

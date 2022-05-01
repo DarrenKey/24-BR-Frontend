@@ -1,6 +1,6 @@
 import styles from "../../styles/Menu.module.css"
 
-const MenuItmes = ["Login", "Play", "Options", "Stats"]
+const MenuItems = ["Login", "Play", "Options", "Stats"]
 
 // type Props = {
 //   readonly upgrade: Upgrade
@@ -12,8 +12,8 @@ const MenuItmes = ["Login", "Play", "Options", "Stats"]
 
 const Menu = () => {
   return (
-    <div>
-        { MenuItmes.map(ele => <ul className={styles.menuItem} key={ele}>{ele}</ul>) }
+    <div className={styles.wholemenu}>
+        { MenuItems.map(ele => <ul className={styles.menuitem} key={ele}>{ele}</ul>) }
     </div>
   )
 }

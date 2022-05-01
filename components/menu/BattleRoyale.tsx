@@ -14,7 +14,8 @@ const BattleRoyale = () => {
     <div className={styles.battleroyale}>
         <div className = {styles.brbox}>
             <div className = {styles.b}>B</div>
-            <div className = {styles.r}>R</div></div>
+            <div className = {styles.r}>R</div>
+            </div>
             <div className = {styles.attle}>attle</div>
             <div className = {styles.oyale}>oyale</div>
 
