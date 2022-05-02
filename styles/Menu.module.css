@@ -23,10 +23,16 @@
     color: blue;
     padding: 1rem;
     font-size: 15rem;
+
+    
 	-webkit-text-stroke: 5px #AF5063;
 	-webkit-text-fill-color: white;
     font-weight: 900;
+    
     animation: pulsate_24 0.11s ease-in-out infinite alternate;    
+    border: #AF5063 0.5rem solid;
+    text-align: center;
+    border-radius: 1rem;
 }
 
 .b, .r{

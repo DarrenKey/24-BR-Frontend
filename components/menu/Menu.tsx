@@ -1,3 +1,4 @@
+import Link from "next/link"
 import styles from "../../styles/Menu.module.css"
 
 const MenuItems = ["Login", "Play", "Options", "Stats"]
@@ -13,7 +14,7 @@ const MenuItems = ["Login", "Play", "Options", "Stats"]
 const Menu = () => {
   return (
     <div className={styles.wholemenu}>
-        { MenuItems.map(ele => <ul className={styles.menuitem} key={ele}>{ele}</ul>) }
+        { MenuItems.map(ele => <ul className={styles.menuitem} key={ele}><Link href = {`/${ele.toLowerCase() == "play" ? "game" : ele.toLowerCase()}`}>{ele}</Link></ul>) }
     </div>
   )
 }
