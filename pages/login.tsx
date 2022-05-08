@@ -1,11 +1,22 @@
 import styles from '../styles/Login.module.css'
 import React from 'react'
+import { useAuth } from "../components/auth/login"
+import { signInWithGoogle } from '../util/firebase'
 
 const Login = () => {
+    const { user } = useAuth()
     return (
     <div className={styles.main}>
         <div className={styles.login}>
-            Login
+            {user ? (
+                <Login />
+            ) : (
+            <button
+                onClick={signInWithGoogle}
+            >
+                Login
+            </button>
+            )}
         </div>
     </div>
     )
