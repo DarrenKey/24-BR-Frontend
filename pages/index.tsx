@@ -20,14 +20,6 @@ const Home = () => {
       <div className={styles.menu}>
         <Menu />
       </div>
-      
-
-      <style jsx global>{
-        `body{
-          background-color: black;
-        }`
-      }
-      </style>
     </div>
   )
 }

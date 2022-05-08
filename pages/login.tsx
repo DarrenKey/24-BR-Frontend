@@ -7,14 +7,6 @@ const Login = () => {
         <div className={styles.login}>
             Login
         </div>
-
-      <style jsx global>{
-        `body{
-          background-color: black;
-        }`
-      }
-      </style>
-
     </div>
     )
 }

@@ -7,14 +7,6 @@ const Stats = () => {
         <div className={styles.login}>
             Stats
         </div>
-
-      <style jsx global>{
-        `body{
-          background-color: black;
-        }`
-      }
-      </style>
-
     </div>
     )
 }
