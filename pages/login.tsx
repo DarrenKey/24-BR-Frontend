@@ -4,7 +4,7 @@ import { useAuth } from "../components/auth/AuthUserProvider"
 import { signInWithGoogle } from '../util/firebase'
 
 const Login = () => {
-    const { user } = useAuth()
+    // const { user } = useAuth()
     return (
     
     <div className={styles.main}>
@@ -21,11 +21,13 @@ const Login = () => {
             )} 
 
             Login */}
+            
             <button
                 onClick={signInWithGoogle}
             >
                 Login
             </button>
+            
         </div>
     </div>
     )
