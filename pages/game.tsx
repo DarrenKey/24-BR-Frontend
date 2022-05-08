@@ -8,13 +8,6 @@ const Game = () => {
             Game
         </div>
 
-      <style jsx global>{
-        `body{
-          background-color: black;
-        }`
-      }
-      </style>
-
     </div>
     )
 }
