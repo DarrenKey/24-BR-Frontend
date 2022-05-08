@@ -1,8 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@500;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Assistant:wght@400;800&family=Noto+Sans:wght@900&family=Plus+Jakarta+Sans:wght@700&display=swap');
 
 .wholemenu{
-  border: white 0.5rem solid;
-  border-radius: 1rem;
   width: fit-content;
   text-align: center;
   padding: 0rem 1rem 0rem 1rem;
@@ -11,11 +9,18 @@
 .menuitem {
   
   color: white;
-  font-family: 'Noto Sans', sans-serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   font-weight: 400;
-  font-size: 3rem;
+  font-size: 2rem;
   text-align: center;
-  padding: 0;
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  border: white 0.25rem solid;
+  border-radius: 1rem;
+  margin: 0;
+}
+
+.menuitem + .menuitem{
+  margin-top: 1rem;
 }
 
 .twentyfourItem{
@@ -23,6 +28,12 @@
     color: blue;
     padding: 1rem;
     font-size: 15rem;
+    width: 22.5rem;
+    height: 22.5rem;
+    vertical-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     
 	-webkit-text-stroke: 5px #AF5063;
@@ -31,7 +42,6 @@
     
     animation: pulsate_24 0.11s ease-in-out infinite alternate;    
     border: #AF5063 0.5rem solid;
-    text-align: center;
     border-radius: 1rem;
 }
 
@@ -70,7 +80,7 @@
 .battleroyale{
     display: grid;
     color: white;
-    font-family: 'Noto Sans', sans-serif;
+    font-family: 'Assistant', sans-serif;
     font-weight: 900;
     grid-template-columns: min-content 1fr;
     grid-template-rows: min-content min-content;
