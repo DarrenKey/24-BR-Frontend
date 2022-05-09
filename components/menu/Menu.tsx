@@ -1,7 +1,7 @@
 import Link from "next/link"
 import styles from "../../styles/Menu.module.css"
 
-const MenuItems = ["Login", "Play", "Options", "Stats"]
+const MenuItems = ["LOGIN", "PLAY", "OPTIONS", "STATS"]
 
 // type Props = {
 //   readonly upgrade: Upgrade
