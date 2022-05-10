@@ -7,7 +7,7 @@
 }
 
 .menuitem {
-  
+  display: block;
   color: white;
   font-family: 'Plus Jakarta Sans', sans-serif;
   font-weight: 400;

@@ -1,12 +1,15 @@
-import styles from '../styles/Login.module.css'
+import subpagestyle from '../styles/Subpages.module.css'
+
+import styles from '../styles/Stats.module.css'
 import React from 'react'
 
 const Stats = () => {
     return (
-    <div className={styles.main}>
-        <div className={styles.login}>
+    <div className={subpagestyle.main}>
+        <div className={subpagestyle.title}>
             Stats
         </div>
+
     </div>
     )
 }

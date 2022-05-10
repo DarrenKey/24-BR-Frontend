@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Assistant:wght@400;700;800&family=Noto+Sans:wght@900&family=Plus+Jakarta+Sans:wght@700&display=swap');
+
+.main{
+    color: white;
+    font-family: 'Assistant', sans-serif;
+    font-weight: 700;
+    margin: 2rem;
+
+}
+
+.title{
+    text-align: center;
+    font-size: 4rem;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+
+    border: #AF5063 solid 0.5rem;
+    border-radius: 2rem;
+    padding: 1rem 3rem 1rem 3rem;
+
+
+    animation: pulsate_title 0.11s ease-in-out infinite alternate;
+
+}
+
+
+@keyframes pulsate_title{
+    100% {
+      /* Larger blur radius */
+        text-shadow:
+        0 0 1.3rem #AF5063,
+        0 0 1.5rem #AF5063,
+        0 0 1.8rem #AF5063,
+        0 0 2.0rem #AF5063;
+        box-shadow:
+        0 0 0.15rem #AF5063,
+        0 0 0.3rem #AF5063,
+        0 0 0.6rem #AF5063,
+        0 0 0.8rem #AF5063,
+
+        inset 0 0 0.15rem #AF5063,
+        inset 0 0 0.3rem #AF5063,
+        inset 0 0 0.6rem #AF5063,
+        inset 0 0 0.8rem #AF5063;
+
+    }
+    0% {
+      /* A slightly smaller blur radius */
+        text-shadow:
+        0 0 1.2rem #AF5063,
+        0 0 1.4rem #AF5063,
+        0 0 1.7rem #AF5063,
+        0 0 1.9rem #AF5063;
+
+        box-shadow:
+        0 0 0.1rem #AF5063,
+        0 0 0.25rem #AF5063,
+        0 0 0.55rem #AF5063,
+        0 0 0.75rem #AF5063,
+
+        inset 0 0 0.1rem #AF5063,
+        inset 0 0 0.25rem #AF5063,
+        inset 0 0 0.55rem #AF5063,
+        inset 0 0 0.75rem #AF5063;
+    }
+  }

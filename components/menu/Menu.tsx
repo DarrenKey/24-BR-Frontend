@@ -15,7 +15,11 @@ const MenuItems = ["LOGIN", "PLAY", "OPTIONS", "STATS"]
 const Menu = () => {
   return (
     <div className={styles.wholemenu}>
-      {MenuItems.map(ele => <ul className={styles.menuitem} key={ele}><Link href={`/${ele.toLowerCase() == "play" ? "game" : ele.toLowerCase()}`}>{ele}</Link></ul>)}
+      {MenuItems.map(ele => 
+      
+      <Link href={`/${ele.toLowerCase() == "play" ? "game" : ele.toLowerCase()}`} key={ele} passHref> 
+        <a className={styles.menuitem}>{ele}</a>
+       </Link>)}
     </div>
   )
 }

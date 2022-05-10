@@ -1,5 +1,4 @@
-import styles from "../../styles/Menu.module.css"
-
+import styles from "../../styles/Menu.module.css";
 
 // type Props = {
 //   readonly upgrade: Upgrade
@@ -12,15 +11,14 @@ import styles from "../../styles/Menu.module.css"
 const BattleRoyale = () => {
   return (
     <div className={styles.battleroyale}>
-        <div className = {styles.brbox}>
-            <div className = {styles.b}>B</div>
-            <div className = {styles.r}>R</div>
-            </div>
-            <div className = {styles.attle}>attle</div>
-            <div className = {styles.oyale}>oyale</div>
-
+      <div className={styles.brbox}>
+        <div className={styles.b}>B</div>
+        <div className={styles.r}>R</div>
+      </div>
+      <div className={styles.attle}>attle</div>
+      <div className={styles.oyale}>oyale</div>
     </div>
-  )
-}
+  );
+};
 
-export default BattleRoyale
+export default BattleRoyale;

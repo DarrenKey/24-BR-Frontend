@@ -1,10 +1,10 @@
-import styles from '../styles/Login.module.css'
+import subpagestyle from '../styles/Subpages.module.css'
 import React from 'react'
 
 const Options = () => {
     return (
-    <div className={styles.main}>
-        <div className={styles.login}>
+    <div className={subpagestyle.main}>
+        <div className={subpagestyle.title}>
             Options
         </div>
     </div>
