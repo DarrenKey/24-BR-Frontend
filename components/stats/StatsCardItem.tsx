@@ -9,6 +9,8 @@ type Props = {
 const StatsCardItem = ({title, amount} : Props) => {
   return (
     <div className={styles.item}>
+      <div className = {styles.title}>{title}</div>
+      <div className = {styles.amount}>{amount.toString()}</div>
     </div>
   )
 }
