@@ -1,6 +1,6 @@
 This is a the frontend to 24 Battle Royale.
 
-Link to deployed site - http://150.136.166.105:3000/game
+Link to deployed site - http://150.136.166.105:3000/
 
 Github repo - https://github.com/DarrenKey/24-BR-Frontend
 
