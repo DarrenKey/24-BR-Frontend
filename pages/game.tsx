@@ -38,11 +38,16 @@ const Game = () => {
     console.log("test!");
     sendMessage(c)}, []);
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = async (event : React.SyntheticEvent) => {
+
+    const target = event.target as typeof event.target & {
+      console: { value: string };
+    };
+
     event.preventDefault()
 
-    console.log(event.target.console.value)
-    handleClickSendMessage("msg " + event.target.console.value);
+    console.log(target.console.value)
+    handleClickSendMessage("msg " + target.console.value);
     
 
   }
