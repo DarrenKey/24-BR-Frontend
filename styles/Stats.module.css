@@ -6,6 +6,7 @@
     margin-right: auto;
     margin-top: 3rem;
     width: 50vw;
+    min-width: 20rem;
     display: grid;
 
     grid-template-columns: repeat(2, 1fr);
