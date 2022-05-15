@@ -8,15 +8,6 @@ const Game = () => {
   
   const [chat, setChat] = useState<string[]>([]);
   const [alert, setAlert] = useState("Connecting...");
-
-  enum commands {
-    Msg = "Msg",
-    Alert = "Alert",
-    Quit = "Quit",
-    Problem = "Problem",
-    None = "None"
-  }
-
   const {
     sendMessage,
     lastMessage,
@@ -28,39 +19,29 @@ const Game = () => {
     //Will attempt to reconnect on all close events, such as server shutting down
     shouldReconnect: (closeEvent) => false,
   });
-
-
-
-  const [isAcceptingCommands, setIsAcceptingCommands] = useState(commands.None);
-
   
   useEffect(() => {
-    if (isAcceptingCommands == commands.None) {
-      switch (lastMessage?.data){
-        case "Msg":
-          setIsAcceptingCommands(commands.Msg)
-          break
-        case "Alert":
-          setIsAcceptingCommands(commands.Alert)
-          break
-        case "Problem":
-          setIsAcceptingCommands(commands.Problem)
-          break
-        case "Quit":
-          setIsAcceptingCommands(commands.Quit)
-          break
-      }
+    if (lastMessage == null){
+      return 
     }
-    else {
-      switch (isAcceptingCommands){
-        case commands.Msg:
-          setChat((prev) => [(lastMessage?.data), ...prev]);
-          setIsAcceptingCommands(commands.None)
-          break
-        case commands.Alert:
-          setAlert(lastMessage?.data)
-      }
-    } 
+
+    const msgFromWebsocket : string = lastMessage?.data
+    const commandSeperator = msgFromWebsocket.indexOf("|") ; 
+    if (commandSeperator < 0){
+      return 
+    }
+    
+    const commandFromWebsocket = msgFromWebsocket.substring(0, commandSeperator)
+    const actualMsg = msgFromWebsocket.substring(commandSeperator + 1)
+
+    switch(commandFromWebsocket){
+      case "Msg":
+        setChat((prev) => [(actualMsg), ...prev]);
+        break
+      case "Alert":
+        setAlert(actualMsg) 
+    }
+    console.log(actualMsg, commandFromWebsocket)
   }, [lastMessage]);
 
   const handleClickSendMessage =  useCallback((c : string) => {
@@ -81,6 +62,21 @@ const Game = () => {
 
   }
 
+
+  const handleProblem = async (event : React.SyntheticEvent) => {
+
+    const target = event.target as typeof event.target & {
+      chat: { value: string };
+    };
+
+    event.preventDefault()
+
+    console.log(target.chat.value)
+    handleClickSendMessage( target.chat.value);
+    
+
+  }
+
     return (
     <div className={subpagestyle.main}>
         <div className={subpagestyle.title}>
@@ -90,6 +86,18 @@ const Game = () => {
         <h1 className={styles.header}>Alert</h1>
         <div className={styles.alert}>{alert}</div>
 
+        <button type="submit" className={styles.startButton}>Start</button>
+
+        <div className={styles.numInLobby}>Number currently in lobby:</div>
+        <div className={styles.score}>Score:</div>
+        <div className={styles.time}>Time:</div>
+
+
+        <form onSubmit={handleProblem} className={styles.chatroom}>
+          <input type="text" id="chat" name="chat" className={styles.chatBox}/>
+          <button type="submit" className={styles.chatButton}>Submit</button>
+      </form>
+
         <h1 className={styles.header}>Chat</h1>
         <div className={styles.chat}>
           {chat.map((e, index) => 
@@ -98,9 +106,11 @@ const Game = () => {
         
         </div>
 
+
+
         <form onSubmit={handleSubmit} className={styles.chatroom}>
           <input type="text" id="chat" name="chat" className={styles.chatBox}/>
-        <button type="submit" className={styles.chatButton}>Chat</button>
+          <button type="submit" className={styles.chatButton}>Chat</button>
       </form>
     </div>
     )
