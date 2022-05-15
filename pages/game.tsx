@@ -6,7 +6,7 @@ import useWebSocket from 'react-use-websocket'
 const Game = () => {
   const socketUrl = "ws://localhost:5000";
   
-  const [chat, setChat] = useState([]);
+  const [chat, setChat] = useState<string[]>([]);
 
   const {
     sendMessage,
@@ -29,7 +29,7 @@ const Game = () => {
       setIsAcceptingCommands(true)
     }
     else if (isAcceptingCommands){
-      setChat((prev) => prev.concat(lastMessage?.data));
+      setChat((prev) => [(lastMessage?.data), ...prev]);
       setIsAcceptingCommands(false)
     }
   }, [lastMessage, setChat, isAcceptingCommands]);
@@ -67,8 +67,8 @@ const Game = () => {
         </div>
 
         <form onSubmit={handleSubmit} className={styles.chatroom}>
-          <input type="text" id="console" name="console"/>
-        <button type="submit">Submit</button>
+          <input type="text" id="console" name="console" className={styles.chatBox}/>
+        <button type="submit" className={styles.chatButton}>Chat</button>
       </form>
     </div>
     )

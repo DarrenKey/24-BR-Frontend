@@ -3,3 +3,35 @@
     justify-content: center;
     margin-top: 5rem;
 }
+
+.chat { 
+    margin: 5rem;
+    overflow: auto;
+    height: 10rem;
+
+
+}
+
+.chatButton{
+
+}
+
+.chatBox{
+
+}
+
+
+.chat::-webkit-scrollbar {
+    -webkit-appearance: scrollbartrack-vertical;
+    width: 8px;
+}
+
+.chat::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(1,1,1,0.3); 
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.chat::-webkit-scrollbar-thumb {
+    background-color: white;
+    -webkit-box-shadow: inset 0 0 6px rgba(1,1,1,0.5); 
+}
