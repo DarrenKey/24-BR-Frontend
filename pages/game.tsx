@@ -7,6 +7,9 @@ const Game = () => {
   const socketUrl = "ws://localhost:5000";
   
   const [chat, setChat] = useState<string[]>([]);
+
+  const [problem, setProblem] = useState<string[]>([]);
+
   const [alert, setAlert] = useState("Connecting...");
   const {
     sendMessage,
@@ -40,6 +43,11 @@ const Game = () => {
         break
       case "Alert":
         setAlert(actualMsg) 
+        break
+      case "Problem": 
+        setProblem((prev) => [(actualMsg), ...prev]);
+        break
+
     }
     console.log(actualMsg, commandFromWebsocket)
   }, [lastMessage]);
@@ -91,6 +99,14 @@ const Game = () => {
         <div className={styles.numInLobby}>Number currently in lobby:</div>
         <div className={styles.score}>Score:</div>
         <div className={styles.time}>Time:</div>
+        
+        <h1 className={styles.header}>Problem</h1>
+        <div className={styles.chat}>
+          {problem.map((e, index) => 
+              <p key={index}>{e}</p>
+            )}
+        
+        </div>
 
 
         <form onSubmit={handleProblem} className={styles.chatroom}>
