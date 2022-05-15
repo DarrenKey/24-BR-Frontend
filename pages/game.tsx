@@ -7,6 +7,15 @@ const Game = () => {
   const socketUrl = "ws://localhost:5000";
   
   const [chat, setChat] = useState<string[]>([]);
+  const [alert, setAlert] = useState("Connecting...");
+
+  enum commands {
+    Msg = "Msg",
+    Alert = "Alert",
+    Quit = "Quit",
+    Problem = "Problem",
+    None = "None"
+  }
 
   const {
     sendMessage,
@@ -22,17 +31,37 @@ const Game = () => {
 
 
 
-  const [isAcceptingCommands, setIsAcceptingCommands] = useState(Boolean);
+  const [isAcceptingCommands, setIsAcceptingCommands] = useState(commands.None);
 
+  
   useEffect(() => {
-    if (lastMessage?.data == "Msg") {
-      setIsAcceptingCommands(true)
+    if (isAcceptingCommands == commands.None) {
+      switch (lastMessage?.data){
+        case "Msg":
+          setIsAcceptingCommands(commands.Msg)
+          break
+        case "Alert":
+          setIsAcceptingCommands(commands.Alert)
+          break
+        case "Problem":
+          setIsAcceptingCommands(commands.Problem)
+          break
+        case "Quit":
+          setIsAcceptingCommands(commands.Quit)
+          break
+      }
     }
-    else if (isAcceptingCommands){
-      setChat((prev) => [(lastMessage?.data), ...prev]);
-      setIsAcceptingCommands(false)
-    }
-  }, [lastMessage, setChat, isAcceptingCommands]);
+    else {
+      switch (isAcceptingCommands){
+        case commands.Msg:
+          setChat((prev) => [(lastMessage?.data), ...prev]);
+          setIsAcceptingCommands(commands.None)
+          break
+        case commands.Alert:
+          setAlert(lastMessage?.data)
+      }
+    } 
+  }, [lastMessage]);
 
   const handleClickSendMessage =  useCallback((c : string) => {
     console.log("test!");
@@ -41,13 +70,13 @@ const Game = () => {
   const handleSubmit = async (event : React.SyntheticEvent) => {
 
     const target = event.target as typeof event.target & {
-      console: { value: string };
+      chat: { value: string };
     };
 
     event.preventDefault()
 
-    console.log(target.console.value)
-    handleClickSendMessage("msg " + target.console.value);
+    console.log(target.chat.value)
+    handleClickSendMessage("msg " + target.chat.value);
     
 
   }
@@ -58,7 +87,10 @@ const Game = () => {
             Game
         </div>
 
+        <h1 className={styles.header}>Alert</h1>
+        <div className={styles.alert}>{alert}</div>
 
+        <h1 className={styles.header}>Chat</h1>
         <div className={styles.chat}>
           {chat.map((e, index) => 
               <p key={index}>{e}</p>
@@ -67,7 +99,7 @@ const Game = () => {
         </div>
 
         <form onSubmit={handleSubmit} className={styles.chatroom}>
-          <input type="text" id="console" name="console" className={styles.chatBox}/>
+          <input type="text" id="chat" name="chat" className={styles.chatBox}/>
         <button type="submit" className={styles.chatButton}>Chat</button>
       </form>
     </div>
