@@ -101,7 +101,7 @@ const Game = () => {
         <div className={styles.time}>Time:</div>
         
         <h1 className={styles.header}>Problem</h1>
-        <div className={styles.chat}>
+        <div className={styles.websocketResponse}>
           {problem.map((e, index) => 
               <p key={index}>{e}</p>
             )}
@@ -109,13 +109,15 @@ const Game = () => {
         </div>
 
 
-        <form onSubmit={handleProblem} className={styles.chatroom}>
-          <input type="text" id="chat" name="chat" className={styles.chatBox}/>
-          <button type="submit" className={styles.chatButton}>Submit</button>
+        <h1 className={styles.header}>Submit answer</h1>
+
+        <form onSubmit={handleProblem} className={styles.sendWebsocketForm}>
+          <input type="text" id="chat" name="chat" className={styles.sendWebsocketTextarea}/>
+          <button type="submit" className={styles.sendWebsocketButton}>Submit</button>
       </form>
 
         <h1 className={styles.header}>Chat</h1>
-        <div className={styles.chat}>
+        <div className={styles.websocketResponse}>
           {chat.map((e, index) => 
               <p key={index}>{e}</p>
             )}
@@ -124,9 +126,9 @@ const Game = () => {
 
 
 
-        <form onSubmit={handleSubmit} className={styles.chatroom}>
-          <input type="text" id="chat" name="chat" className={styles.chatBox}/>
-          <button type="submit" className={styles.chatButton}>Chat</button>
+        <form onSubmit={handleSubmit} className={styles.sendWebsocketForm}>
+          <input type="text" id="chat" name="chat" className={styles.sendWebsocketTextarea}/>
+          <button type="submit" className={styles.sendWebsocketButton}>Chat</button>
       </form>
     </div>
     )

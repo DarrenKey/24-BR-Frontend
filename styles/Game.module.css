@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Assistant:wght@400;800&family=Noto+Sans:wght@900&family=Plus+Jakarta+Sans:wght@700&display=swap');
 
-.chatroom {
+.sendWebsocketForm {
     display: flex;
     justify-content: center;
     margin: 5rem;
@@ -8,7 +8,7 @@
     gap: 1rem;
 }
 
-.chat { 
+.websocketResponse { 
     margin: 1rem 5rem 1rem 5rem;
     overflow: auto;
     height: 6rem;
@@ -39,7 +39,7 @@
     justify-content: center;
 }
 
-.chatButton{
+.sendWebsocketButton{
     padding: 0.2rem 1rem 0.2rem 1rem;
     font-family: 'Plus Jakarta Sans', sans-serif;
     font-weight: 400;
@@ -51,7 +51,7 @@
 
 }
 
-.chatBox{
+.sendWebsocketTextarea{
     flex-grow: 5;
     font-family: 'Plus Jakarta Sans', sans-serif;
     font-weight: 400;
@@ -62,15 +62,15 @@
 }
 
 
-.chat::-webkit-scrollbar {
+.websocketResponse::-webkit-scrollbar {
     -webkit-appearance: scrollbartrack-vertical;
     width: 8px;
 }
 
-.chat::-webkit-scrollbar-track {
+.websocketResponse::-webkit-scrollbar-track {
     background-color: rgba(255, 255, 255, 0.3);
 }
 
-.chat::-webkit-scrollbar-thumb {
+.websocketResponse::-webkit-scrollbar-thumb {
     background-color: white;
 }
