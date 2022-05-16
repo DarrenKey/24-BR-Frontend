@@ -7,9 +7,10 @@ const Game = () => {
   const socketUrl = "ws://localhost:5000";
   
   const [chat, setChat] = useState<string[]>([]);
-
   const [problem, setProblem] = useState<string[]>([]);
-
+  const [time, setTime] = useState("");
+  const [numLobby, setNumLobby] = useState("");
+  const [score, setScore] = useState("");
   const [alert, setAlert] = useState("Connecting...");
   const {
     sendMessage,
@@ -47,7 +48,15 @@ const Game = () => {
       case "Problem": 
         setProblem((prev) => [(actualMsg), ...prev]);
         break
-
+      case "Time": 
+        setTime(actualMsg)
+        break
+      case "Score":
+        setScore(actualMsg)
+        break
+      case "Num_in_lobby":
+        setNumLobby(actualMsg)
+        break
     }
     console.log(actualMsg, commandFromWebsocket)
   }, [lastMessage]);
@@ -96,9 +105,9 @@ const Game = () => {
 
         <button type="submit" className={styles.startButton}>Start</button>
 
-        <div className={styles.numInLobby}>Number currently in lobby:</div>
-        <div className={styles.score}>Score:</div>
-        <div className={styles.time}>Time:</div>
+        <div className={styles.numInLobby}>Number currently in lobby:{numLobby}</div>
+        <div className={styles.score}>Score: {score}</div>
+        <div className={styles.time}>Time: {time}</div>
         
         <h1 className={styles.header}>Problem</h1>
         <div className={styles.websocketResponse}>
