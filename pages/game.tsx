@@ -3,8 +3,10 @@ import styles from '../styles/Game.module.css'
 import React, { useCallback, useEffect, useState } from 'react'
 import useWebSocket from 'react-use-websocket'
 
+
+
 const Game = () => {
-  const socketUrl = "ws://localhost:5000";
+  const socketUrl = process.env.NEXT_PUBLIC_WEBSOCKET_ADDR;
   
   const [chat, setChat] = useState<string[]>([]);
   const [problem, setProblem] = useState<string[]>([]);
@@ -20,13 +22,14 @@ const Game = () => {
   } = useWebSocket(socketUrl, {
     onOpen: () => handleClickSendMessage("on_connect"),
     onMessage : (event) => console.log(event),
+    onClose: (event) => handleClickSendMessage("/quit"),
     //Will attempt to reconnect on all close events, such as server shutting down
     shouldReconnect: (closeEvent) => false,
   });
   
   useEffect(() => {
     if (lastMessage == null){
-      return 
+      return  
     }
 
     const msgFromWebsocket : string = lastMessage?.data
@@ -45,8 +48,11 @@ const Game = () => {
       case "Alert":
         setAlert(actualMsg) 
         break
+      case "Quit":
+        setAlert(actualMsg) 
+        break
       case "Problem": 
-        setProblem((prev) => [(actualMsg), ...prev]);
+        setProblem((prev) => [("Problem: " + actualMsg), ...prev]);
         break
       case "Time": 
         setTime(actualMsg)
@@ -99,13 +105,16 @@ const Game = () => {
         <div className={subpagestyle.title}>
             Game
         </div>
+        <div className={styles.main}>
 
+        <div className = {styles.alertSection}>
         <h1 className={styles.header}>Alert</h1>
         <div className={styles.alert}>{alert}</div>
+        </div>
 
-        <button type="submit" className={styles.startButton}>Start</button>
+        {/* <button type="submit" className={styles.startButton}>Start</button> */}
 
-        <div className={styles.numInLobby}>Number currently in lobby:{numLobby}</div>
+        <div className={styles.numInLobby}>Number currently in lobby: {numLobby}</div>
         <div className={styles.score}>Score: {score}</div>
         <div className={styles.time}>Time: {time}</div>
         
@@ -124,6 +133,7 @@ const Game = () => {
           <input type="text" id="chat" name="chat" className={styles.sendWebsocketTextarea}/>
           <button type="submit" className={styles.sendWebsocketButton}>Submit</button>
       </form>
+      </div>
 
         <h1 className={styles.header}>Chat</h1>
         <div className={styles.websocketResponse}>

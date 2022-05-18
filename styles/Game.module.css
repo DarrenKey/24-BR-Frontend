@@ -1,5 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Assistant:wght@400;800&family=Noto+Sans:wght@900&family=Plus+Jakarta+Sans:wght@700&display=swap');
 
+.main {
+    display: grid;
+}
+.alertSection{
+    
+}
+
 .sendWebsocketForm {
     display: flex;
     justify-content: center;
@@ -48,6 +55,14 @@
     background-color: black;
     border: 0.2rem white solid;
     border-radius: 0.5rem;
+
+}
+
+.numInLobby, .score, .time{
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin: 1rem;
 
 }
 
