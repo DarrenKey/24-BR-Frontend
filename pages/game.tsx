@@ -6,7 +6,7 @@ import useWebSocket from 'react-use-websocket'
 
 
 const Game = () => {
-  const socketUrl = process.env.NEXT_PUBLIC_WEBSOCKET_ADDR;
+  const socketUrl = process.env.NEXT_PUBLIC_WEBSOCKET_ADDR ?? "";
   
   const [chat, setChat] = useState<string[]>([]);
   const [problem, setProblem] = useState<string[]>([]);
