@@ -81,6 +81,8 @@ const Game = () => {
 
     console.log(target.chat.value)
     handleClickSendMessage("msg " + target.chat.value);
+
+    target.chat.value = ""
     
 
   }
@@ -89,14 +91,16 @@ const Game = () => {
   const handleProblem = async (event : React.SyntheticEvent) => {
 
     const target = event.target as typeof event.target & {
-      chat: { value: string };
+      answer: { value: string };
     };
 
     event.preventDefault()
 
-    console.log(target.chat.value)
-    handleClickSendMessage( target.chat.value);
+    console.log(target.answer.value)
+    handleClickSendMessage( target.answer.value);
     
+
+    target.answer.value = ""
 
   }
 
@@ -130,7 +134,7 @@ const Game = () => {
         <h1 className={styles.header}>Submit answer</h1>
 
         <form onSubmit={handleProblem} className={styles.sendWebsocketForm}>
-          <input type="text" id="chat" name="chat" className={styles.sendWebsocketTextarea}/>
+          <input type="text" id="answer" name="answer" className={styles.sendWebsocketTextarea}/>
           <button type="submit" className={styles.sendWebsocketButton}>Submit</button>
       </form>
       </div>
